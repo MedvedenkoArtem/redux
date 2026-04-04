@@ -1,5 +1,10 @@
-import { type InputProps } from "./types";
-import { InputWrapper, InputLabel, InputComponent, ErrorMessage } from "./styles";
+import { type InputProps } from "./types"
+import {
+  InputWrapper,
+  InputLabel,
+  InputComponent,
+  ErrorMessage
+} from "./styles"
 
 function Input({
   id,
@@ -8,9 +13,11 @@ function Input({
   placeholder,
   label,
   disabled = false,
-  error = undefined,
   value,
-  onChange
+  onChange,
+  onBlur,
+  error = false,
+  helperText
 }: InputProps) {
   return (
     <InputWrapper>
@@ -21,16 +28,15 @@ function Input({
         type={type}
         placeholder={placeholder}
         disabled={disabled}
-        $error={error}
         value={value}
         onChange={onChange}
+        onBlur={onBlur}
+        $error={error}
       />
-      {/* Условный рендеринг
-      - если слева от && стоит false, то элемент справа от && на странице не показывается(т.е скрывается)
-      - если слева от && стоит true, то элемент справа от && на странице показывается */}
-      {!!error && <ErrorMessage>{error}</ErrorMessage>}
+
+      {error && <ErrorMessage>{helperText}</ErrorMessage>}
     </InputWrapper>
-  );
+  )
 }
 
-export default Input;
+export default Input

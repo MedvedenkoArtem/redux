@@ -11,7 +11,7 @@ const generateButtonColor = (isRed: boolean, disabled: boolean | undefined) => {
     if (isRed) {
       return "#ff6868ff";
     } else {
-      return "red";
+      return "rgb(82, 82, 241)";
     }
   }
 };

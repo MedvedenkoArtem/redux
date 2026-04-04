@@ -1,21 +1,9 @@
 import styled from "@emotion/styled";
 
 interface InputComponentProps {
-  $error: string | undefined;
+  $error?: boolean;
+  disabled?: boolean;
 }
-
-const generateInputColor = (error: string | undefined, disabled?: boolean) => {
-  // if(disabled === true) {
-  if (disabled) {
-    return "#acacacff";
-  } else {
-    if (error) {
-      return "#ff6868ff";
-    } else {
-      return "#3f3f3f";
-    }
-  }
-};
 
 export const InputWrapper = styled.div`
   display: flex;
@@ -33,7 +21,11 @@ export const InputComponent = styled.input<InputComponentProps>`
   width: 100%;
   height: 50px;
   border: 1px solid
-    ${({ disabled, $error }) => generateInputColor($error, disabled)};
+    ${({ $error, disabled }) => {
+      if (disabled) return "#acacacff";
+      if ($error) return "red";
+      return "#3f3f3f";
+    }};
   border-radius: 4px;
   padding: 12px;
   outline: none;
@@ -41,6 +33,10 @@ export const InputComponent = styled.input<InputComponentProps>`
   &::placeholder {
     color: #6f6f6f;
     font-size: 16px;
+  }
+
+  &:focus {
+    border: 1px solid ${({ $error }) => ($error ? "red" : "#5b9cff")};
   }
 `;
 

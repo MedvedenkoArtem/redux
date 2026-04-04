@@ -1,5 +1,5 @@
 import { createAppSlice } from "store/createAppSlice"
-
+import { PayloadAction } from "@reduxjs/toolkit"  
 const counterInintialState = {
   count: 0,
 }
@@ -17,6 +17,13 @@ export const counterSlice = createAppSlice({
     minus: state => {
       state.count = state.count - 1
     },
+    divide: (state, action: PayloadAction<number>) => {
+      state.count = state.count / action.payload
+    },
+    multiply: (state, action: PayloadAction<number>) => {
+      state.count = state.count * action.payload
+    },
+
   },
   // selectors - мы прописываем, какие именно данные мы хотим отдать компонентам
   selectors: {
@@ -31,3 +38,6 @@ export const counterSliceActions = counterSlice.actions
 
 // counterSliceSelectors - это данные, которые мы будем отдавать компонентам, то есть позволять компонентам подписываться на redux store
 export const counterSliceSelectors = counterSlice.selectors
+
+// counterSlice.reducer - это reducer, который будет обрабатывать actions
+export default counterSlice.reducer

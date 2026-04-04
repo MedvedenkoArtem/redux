@@ -1,13 +1,14 @@
-import { type ChangeEvent } from "react";
-
 export interface InputProps {
-  id: string;
-  name: string;
-  type?: string;
-  placeholder: string;
-  label: string;
-  error?: undefined | string;
-  disabled?: boolean;
-  value?: string;
-  onChange?: (event: ChangeEvent<HTMLInputElement>) => void;
+  id: string
+  name: string
+  type?: string
+  placeholder?: string
+  label?: string
+  disabled?: boolean
+  value: string
+  onChange: (e: React.ChangeEvent<HTMLInputElement>) => void
+  onBlur?: (e: React.FocusEvent<HTMLInputElement>) => void
+
+  error?: boolean
+  helperText?: string
 }
