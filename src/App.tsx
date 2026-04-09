@@ -1,26 +1,17 @@
-import { BrowserRouter, Route, Routes } from "react-router-dom";
-import Layout from "components/Layout/Layout";
-import Create_Employee from "pages/Create_Employee/Create_Employee";
-import EmployeeCard from "pages/EmployeeCard/EmployeeCard";
+import { BrowserRouter, Routes, Route } from "react-router-dom";
 
-// lessons
-import Lesson_17 from "lessons/Lesson_17/Lesson_17";
-
-// homeworks
-import Homework_17 from "homeworks/Homewrk_17/Homework_17";
-
+import Layout from "Wheather_App/components/Layout/Layout";
+import Home from "Wheather_App/pages/Home/Home";
+import Weather from "Wheather_App/pages/Weather Page/Weather";
 function App() {
   return (
     <BrowserRouter>
-    <Layout>
-      <Routes> 
-          <Route path="/" element={<Create_Employee />} />
-          <Route path="/EmployeeCard" element= {<EmployeeCard/>} />
-      </Routes>
-    </Layout>
-
-      {/* Lessons */}
-      {/* <Lesson_17 /> */}
+      <Layout>
+        <Routes>
+          <Route path="/" element={<Home />} />
+          <Route path="/weather" element={<Weather />} />
+        </Routes> 
+      </Layout>
     </BrowserRouter>
   );
 }

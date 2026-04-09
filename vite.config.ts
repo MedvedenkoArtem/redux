@@ -15,6 +15,7 @@ export default defineConfig({
       pages: path.resolve(__dirname, "src/pages"),
       styles: path.resolve(__dirname, "src/styles"),
       store: path.resolve(__dirname, "src/store"),
+      Wheather_App: path.resolve(__dirname, "src/Wheather_App"),
     },
   },
   server: {
